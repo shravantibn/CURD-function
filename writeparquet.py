@@ -1,3 +1,4 @@
+#-----------------------------------------------------------------------------------------------------------
 #write_hadoop_parquet(self,parquet_sdf,parquet_name:str,partition_list:list,
 #                           parquet_writing_mode:str, path:str)
 #write_azure_parquet(self, parquet_sdf,storage:str,parquet_name:str,
@@ -6,7 +7,40 @@
 #                           path:str)
 #write_parquet(self, parquet_sdf,parquet_name:str,
 #                    partition_list:list, parquet_writing_mode:str, path:str, storage: str= None)
-#
+#---------------------------------------------------------------------------------------------------------------
+
+class Writeparquet():
+
+    def __init__(self,
+                sc,#: SparkSession, 
+                db_part,
+                env,
+                platform,
+                mount_point,
+                storage_list,
+                platform_list
+                ):
+
+        self.sc = sc
+        self.db_part = db_part
+        self.env = env
+        self.platform = platform
+        self.mount_point = mount_point
+        self.storage_list=storage_list
+        self.platform_list=platform_list
+    
+    @classmethod
+    def from_config(cls, sc,config):
+        db_part = config.get("db_part")
+        env = config.get("env")
+        platform = config.get("platform")
+        mount_point = config.get("mount_point")
+        storage_list = config.get("storage_list")
+        platform_list = config.get("platform_list")
+        
+        return cls(sc,db_part,env,platform,
+                   mount_point,storage_list,platform_list)
+
 
 def write_hadoop_parquet(self,parquet_sdf,parquet_name:str,partition_list:list,
                            parquet_writing_mode:str, path:str):
