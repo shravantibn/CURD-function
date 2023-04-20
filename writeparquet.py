@@ -1,3 +1,13 @@
+#write_hadoop_parquet(self,parquet_sdf,parquet_name:str,partition_list:list,
+#                           parquet_writing_mode:str, path:str)
+#write_azure_parquet(self, parquet_sdf,storage:str,parquet_name:str,
+#                          partition_list:list,
+#                          parquet_writing_mode:str,
+#                           path:str)
+#write_parquet(self, parquet_sdf,parquet_name:str,
+#                    partition_list:list, parquet_writing_mode:str, path:str, storage: str= None)
+#
+
 def write_hadoop_parquet(self,parquet_sdf,parquet_name:str,partition_list:list,
                            parquet_writing_mode:str, path:str):
         """
