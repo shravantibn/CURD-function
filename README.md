@@ -1,2 +1,2 @@
 # CURD-function
-CURD function for Azure
+CURD function for Azure Databricks
